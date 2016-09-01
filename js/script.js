@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//tab realization
 	$(".tabList__item:first").addClass('active');
 	$(".tab:first").show();
 	$(".tab:not(:first)").hide();
@@ -9,19 +10,31 @@ $(document).ready(function(){
  		$(this).addClass('active');
  		
  		var number = $('.tabList__item').index($(this));
- 		console.log(number);
  		$('.tab').not('[style="display: none"]').hide();
  		$('.tab').eq(number).show();
         return false;
     });
 
+    //form realization
     $('.help__text').hide();
     $('.btn').click(function(){
     	$('.help__text').show();
     });
     $('.form-control').hover(function() {
-        $(this).next('span').animate({opacity: 'show', left: '340'}, 'slow');
+        $(this).next('span').stop().animate({opacity: 'show', left: '340'}, 'slow');
     }, function() {
-        $(this).next('span').animate({opacity: 'hide', left: '370'}, 'slow');
+        $(this).next('span').stop().animate({opacity: 'hide', left: '370'}, 'slow');
     });
+
+    $('.form-control').keydown(function( event ) {
+  		if ( event.which == 9 ) {
+   			$('.form-control').focusin(function(){
+   				$(this).next('span').animate({opacity: 'show', left: '340'}, 'slow');
+			});
+			$('.form-control').focusout(function(){
+   				$(this).next('span').animate({opacity: 'hide', left: '370'}, 'slow');
+			});
+  		}
+	});
+
 });
