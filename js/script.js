@@ -25,14 +25,14 @@ $(document).ready(function(){
     }, function() {
         $(this).next('span').stop().animate({opacity: 'hide', left: '370'}, 'slow');
     });
-
+    
     $('.form-control').keydown(function( event ) {
   		if ( event.which == 9 ) {
    			$('.form-control').focusin(function(){
-   				$(this).next('span').animate({opacity: 'show', left: '340'}, 'slow');
+   				$(this).next('span').stop().animate({opacity: 'show', left: '340'}, 'slow');
 			});
 			$('.form-control').focusout(function(){
-   				$(this).next('span').animate({opacity: 'hide', left: '370'}, 'slow');
+   				$(this).next('span').stop().animate({opacity: 'hide', left: '370'}, 'slow');
 			});
   		}
 	});
